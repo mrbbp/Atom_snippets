@@ -12,5 +12,5 @@ i wrote:
 ## js
 - fetch JSON file
 - fetch Html file (with HTMLParser)
-- requestAnimation structure (2 versions) - to avoid use of setTimer() for refresh
+- requestAnimation structure (2 versions) - one with "framerate", second one without timer
 - espruino source code structure (for espruino.com's microcontroler, not web)
