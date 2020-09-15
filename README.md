@@ -8,6 +8,6 @@ i wrote:
 - \<figure\> structure
 - \<picture\> structure with srcset (fallback for webp file)
 - fetch JSON file
-- fetch Html file
+- fetch Html file (with HTMLParser)
 - requestAnimation structure
 - espruino source code structure (for espruino.com's microcontroler, not web)
