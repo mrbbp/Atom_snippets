@@ -1,5 +1,5 @@
 # Atom_snippets
-the `snippets.cson` for Atom with usefull (for me) snippets for my courses
+the `snippets.cson` for Atom with usefull (for me) snippets for my teaching stuffs (courses)
 
 i wrote:
 - html5 base file with viewport init
