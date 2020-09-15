@@ -136,6 +136,32 @@
           xhr.send();
         };
         """
+    'Fetch JSON':
+      'prefix': 'fetch JSON'
+      'body': """
+        fetch('$1.json')
+        .then((reponse) => reponse.json())
+        .then((JSONdata) => {
+          console.log(JSONdata);
+        })
+        .catch((err) => {
+          console.log("erreur:",err);
+        });
+      """
+    'Fetch Html':
+      'prefix': 'fetch HTML'
+      'body': """
+        fetch('./$1.html')
+        .then((reponse) => reponse.text())
+        .then((html) => {
+          // toute la page html
+          //console.log(html);
+          // pour traiter la reponse comme du html
+          const parser = new DOMParser();
+          const page = parser.parseFromString(html, 'text/html');
+          console.log(page.textContent);
+        });
+      """
     'Structure xhtml epub':
       'prefix': 'XHTML Epub'
       'body': """
