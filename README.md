@@ -12,5 +12,6 @@ i wrote:
 ## js
 - fetch JSON file
 - fetch Html file (with HTMLParser)
+- fetch (generic es6)
 - requestAnimation structure (2 versions) - one with "framerate", second one without timer
 - espruino source code structure (for espruino.com's microcontroler, not web)
