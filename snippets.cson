@@ -1,0 +1,213 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
+'.text.html.basic':
+    'picture webp':
+      'prefix': 'picture webp'
+      'body': """
+        <picture>
+          <source srcset="$1.webp" type="image/webp">
+          <source srcset="$2.jpg" type="image/jpeg">
+          <source srcset="$2.png" type="image/png">
+          <img src="$2.jpg" title="$3">
+        </picture>
+      """
+    'fallback webp':
+      'prefix': 'img fallback'
+      'body': """
+        <img src="image.webp" onerror="this.onerror=null;this.src='image.png'">
+        """
+    'structure HTML5':
+      'prefix': 'html5'
+      'body': """
+        <!DOCTYPE html>
+        <html lang="fr">
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>$1</title>
+            <style media="screen">
+              @font-face {
+                font-family: SourceSansVariable;
+                font-weight: 100 800;
+                src: url(fonts/SourceSansVariable-Roman.woff2) format("woff2");
+              }
+              * { margin:0; padding: 0; }
+              html { font-size: 100%; /* 1rem = 1em = 16px */}
+              body {
+                display: flex;
+                height: 100vh;
+                justify-content: center;
+                align-items: center;
+                /* deco */
+                background-color: #f5c141;
+                color: #6121F5;
+                font-family: SourceSansVariable;
+                font-weight: 100;
+              }
+              $2
+            </style>
+          </head>
+          <body>
+            $3
+          </body>
+          <script>
+            $4
+          </script>
+        </html>
+        """
+    'structure HTML5 cours':
+      'prefix': 'html5c'
+      'body': """
+        <!DOCTYPE html>
+        <html lang="fr">
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>$1</title>
+            <style media="screen">
+              @font-face {
+                font-family: SourceSansVariable;
+                src: url(fonts/SourceSansVariable-Roman.woff2) format("woff2");
+              }
+              * { margin:0; padding: 0; }
+              html { font-size: 100%; /* 1rem = 1em = 16px */}
+              body { height: 100vh;}
+              $2
+            </style>
+          </head>
+          <body>
+            $3
+          </body>
+          <script src="js/colonnage.js" charset="utf-8"></script>
+          <script>
+            //colonnage.dessine({'column':16, 'gap':0, 'margin': 0, 'level':"down"});
+          </script>
+        </html>
+        """
+    'Figure custom':
+      'prefix': 'figure custom'
+      'body': """
+        <figure>
+          <img src="$1" alt="$2"/>
+          <figcaption>$3</figcaption>
+        </figure>
+        """
+    'Video custom':
+      'prefix': 'video custom'
+      'body': """
+        <video autoplay loop poster="$1">
+          <source src="$2.webm" type="video/webm">
+          <source src="$3.mp4" type="video/mp4">
+          <source src="$4.ogv" type="video/ogg">
+      </video>
+        """
+    'Loader JSON':
+      'prefix': 'JSON loader'
+      'body': """
+        const getJSON = function(url, callback, errorCallback) {
+          const xhr = new XMLHttpRequest();
+          xhr.open('GET', url);
+          xhr.onload = function () {
+            if (this.status >= 200 && this.status < 400) {
+              callback(JSON.parse(this.response));
+            } else {
+              errorCallback();
+            }
+          };
+          xhr.send();
+        };
+        """
+    'Structure xhtml epub':
+      'prefix': 'XHTML Epub'
+      'body': """
+        <?xml version="1.0" encoding="utf-8"?>
+        <!DOCTYPE html>
+        <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+        <head>
+          <title></title>
+        </head>
+        <body>
+          <p>&#160;</p>
+        </body>
+        </html>
+        """
+'.source.js':
+    'requestAnimationFrame':
+      'prefix': 'anim'
+      'body': """
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+        // inits animation
+        let oldDuree = null;
+        const fps = 25;
+
+        function anim(timestamp) {
+          const msPassees = timestamp - oldDuree;
+          requestAnimationFrame(anim);
+          if (msPassees > 1000/fps) {
+            // fait des trucs
+
+            // fin des trucs
+            oldDuree = timestamp;
+          }
+        }
+        requestAnimationFrame(anim);
+    """
+    'requestAnimationFrame brute':
+      'prefix': 'anim2'
+      'body': """
+        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+
+        function anim(timestamp) {
+          requestAnimationFrame(anim);
+          // fait des trucs à 60fps -> 16ms
+
+        }
+        requestAnimationFrame(anim);
+    """
+    'base espruino':
+      'prefix': 'espruino'
+      'body': """
+        /*
+          espruino - coded by mrbbp.com
+
+          IDE espruino (le minifier) n'aime pas les fonctions fléchées dans des fonctions à callback
+          il a un pb avec les fins de blocs (les ;)
+        */
+
+        const onInit  = () => {
+          //allume la led 20ms
+          digitalPulse(LED1, 1, 20);
+          //let lecture = analogRead(port, valeur);
+        };
+
+        require('Storage').eraseAll();
+        USB.setConsole();
+    """
+    'Fetch es6':
+      'prefix': 'fetch'
+      'body': """
+        fetch('./fichier.txt')
+        .then((response) => response.text())
+        .then((txtResponse) => {
+          console.log(txtResponse);
+        });
+    """
