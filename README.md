@@ -1,4 +1,7 @@
 # Atom_snippets
+le fichier 'snippets.cson' pour l'éditeur Atom avec des extraits de code utilisés en cours.
+
+----
 the `snippets.cson` for Atom with usefull (for me) snippets for my teaching stuffs (courses)
 
 i wrote:
