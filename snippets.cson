@@ -53,13 +53,13 @@
               * { margin:0; padding: 0; }
               html { font-size: 100%; /* 1rem = 1em = 16px */}
               body {
-                display: flex;
+                /*display: flex;*/
                 height: 100vh;
-                justify-content: center;
-                align-items: center;
+                /*justify-content: center;
+                align-items: center;*/
                 /* deco */
-                background-color: #f5c141;
-                color: #6121F5;
+                background-color: #f0f0f0;
+                color: #333;
                 font-family: SourceSansVariable;
                 font-weight: 100;
               }
@@ -97,9 +97,11 @@
           <body>
             $3
           </body>
-          <script src="js/colonnage.js" charset="utf-8"></script>
+          <script src="js/laGrille.js" charset="utf-8"></script>
+          <script src="js/laLigneDeBase.js" charset="utf-8"></script>
           <script>
-            //colonnage.dessine({'column':16, 'gap':0, 'margin': 0, 'level':"down"});
+            //const grille = laGrille.draw({'column':8.5, 'margin':0, 'gutter':"1rem",'level':"down"});
+            //const ligneDeBase = laLigneDeBase.draw({'pattern': 5,'style':'dotted', 'under':"yourElementHTML"});
           </script>
         </html>
         """
@@ -116,8 +118,8 @@
       'body': """
         <video controls autoplay loop poster="$1">
           <source src="$2.webm" type="video/webm">
-          <source src="$2.mp4" type="video/mp4">
-          <source src="$2.ogv" type="video/ogg">
+          <source src="$3.mp4" type="video/mp4">
+          <source src="$4.ogv" type="video/ogg">
       </video>
         """
     'Loader JSON':
@@ -137,7 +139,7 @@
         };
         """
     'Fetch JSON':
-      'prefix': 'fetch JSON'
+      'prefix': 'JSON fetch JSON'
       'body': """
         fetch('$1.json')
         .then((reponse) => reponse.json())
