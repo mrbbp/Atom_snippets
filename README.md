@@ -7,6 +7,7 @@ the `snippets.cson` for Atom with usefull (for me) snippets for my teaching stuf
 i wrote:
 ## html: 
 - html5 base file with viewport init
+- html5 base file with viewport init with laLigneDeBase.js + laGrille.js
 - html5 base file with viewport init + flex display centered + font-face
 - xhtml5 base file for epub
 - \<video\> structure with 3 sources
