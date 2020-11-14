@@ -206,37 +206,37 @@
         console.log(txtResponse);
       });
     """
-    'requestAnimationFrame':
-      'prefix': 'anim'
-      'body': """
-        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-        // inits animation
-        let oldDuree = null;
-        const fps = 25;
+  'requestAnimationFrame avec fps':
+    'prefix': 'requestAnimationFrameFps'
+    'body': """
+      window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+      // inits animation
+      let oldDuree = null;
+      const fps = 25;
 
-        function anim(timestamp) {
-          const msPassees = timestamp - oldDuree;
-          requestAnimationFrame(anim);
-          if (msPassees > 1000/fps) {
-            // fait des trucs
-
-            // fin des trucs
-            oldDuree = timestamp;
-          }
-        }
+      function anim(timestamp) {
+        const msPassees = timestamp - oldDuree;
         requestAnimationFrame(anim);
+        if (msPassees > 1000/fps) {
+          // fait des trucs
+
+          // fin des trucs
+          oldDuree = timestamp;
+        }
+      }
+      requestAnimationFrame(anim);
     """
-    'requestAnimationFrame brute':
-      'prefix': 'anim2'
-      'body': """
-        window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+  'requestAnimationFrame brute':
+    'prefix': 'requestAnimationFrameBrut'
+    'body': """
+      window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 
-        function anim(timestamp) {
-          requestAnimationFrame(anim);
-          // fait des trucs à 60fps -> 16ms
-
-        }
+      function anim(timestamp) {
         requestAnimationFrame(anim);
+        // fait des trucs à 60fps -> 16ms
+
+      }
+      requestAnimationFrame(anim);
     """
     'base espruino':
       'prefix': 'espruino'
