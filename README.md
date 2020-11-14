@@ -18,5 +18,6 @@ i wrote:
 - fetch JSON file
 - fetch Html file (with HTMLParser)
 - fetch (generic es6)
+- debounce - from Monaye, refactor David Walsh function in es6 (https://dev.to/monaye/refactor-davidwalsh-s-debounce-function-5afc)
 - requestAnimation structure (2 versions) - one with "framerate", second one without timer
 - espruino source code structure (for espruino.com's microcontroler, not web)
