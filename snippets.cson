@@ -154,7 +154,7 @@
         xhr.send();
       };
       """
-  'Debounce ES6':
+  'Debounce DavidWalsh ES6':
     'prefix': 'debounce'
     'body': """
       const debounce = (func, delay, immediate) => {
@@ -167,6 +167,19 @@
           }
           const calleeFunc = immediate ? () => { timerId = null } : boundFunc;
           timerId = setTimeout(calleeFunc, delay);
+        };
+      };
+      debounce(() => { }, 500);
+    """
+  'Debounce Simple ES6':
+    'prefix': 'debounceSimple'
+    'body': """
+      const debounce = (func, delay) => {
+        let timerId;
+        return (...args) => {
+          const boundFunc = func.bind(this, ...args);
+          clearTimeout(timerId);
+          timerId = setTimeout(boundFunc, delay);
         };
       };
       debounce(() => { }, 500);
