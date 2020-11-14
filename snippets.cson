@@ -238,22 +238,22 @@
       }
       requestAnimationFrame(anim);
     """
-    'base espruino':
-      'prefix': 'espruino'
-      'body': """
-        /*
-          espruino - coded by mrbbp.com
+  'base espruino':
+    'prefix': 'espruino'
+    'body': """
+      /*
+        espruino - coded by mrbbp.com
 
-          IDE espruino (le minifier) n'aime pas les fonctions fléchées dans des fonctions à callback
-          il a un pb avec les fins de blocs (les ;)
-        */
+        IDE espruino (le minifier) n'aime pas les fonctions fléchées dans des fonctions à callback
+        il a un pb avec les fins de blocs (les ;)
+      */
 
-        const onInit  = () => {
-          //allume la led 20ms
-          digitalPulse(LED1, 1, 20);
-          //let lecture = analogRead(port, valeur);
-        };
+      const onInit  = () => {
+        //allume la led 20ms
+        digitalPulse(LED1, 1, 20);
+        //let lecture = analogRead(port, valeur);
+      };
 
-        require('Storage').eraseAll();
-        USB.setConsole();
+      require('Storage').eraseAll();
+      USB.setConsole();
     """
