@@ -193,7 +193,7 @@
         console.log(JSONdata);
       })
       .catch((err) => {
-        console.log("erreur:",err);
+        console.log("erreur de chargement:",err);
       });
     """
   'Fetch Html':
@@ -208,7 +208,12 @@
         const parser = new DOMParser();
         const page = parser.parseFromString(html, 'text/html');
         console.log(page.textContent);
-      });
+        // sac.innerHTML = page;
+        // sac.innerHTML = page.querySelector("article")
+      })
+      .catch((err) => {
+      	console.log('Erreur de chargement', err);
+  		});
     """
   'Fetch es6':
     'prefix': 'fetchES6'
@@ -217,7 +222,10 @@
       .then((response) => response.text())
       .then((txtResponse) => {
         console.log(txtResponse);
-      });
+      })
+      .catch((err) => {
+      	console.log('Erreur de chargement', err);
+  		});
     """
   'requestAnimationFrame avec fps':
     'prefix': 'requestAnimationFrameFps'
