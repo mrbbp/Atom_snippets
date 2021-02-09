@@ -259,6 +259,18 @@
       }
       requestAnimationFrame(anim);
     """
+  'fonction de remap (p5js)':
+    'prefix': 'remap'
+    'body': """
+      function remap(value, inMin, inMax, outMin, outMax) {
+        return outMin + (outMax - outMin) * (value - inMin) / (inMax - inMin);
+      }
+    """
+  'fonction de remap ES6 (p5js)':
+    'prefix': 'remap ES6'
+    'body': """
+      const remap = (value, inMin, inMax, outMin, outMax) => outMin + (outMax - outMin) * (value - inMin) / (inMax - inMin);
+    """
   'base espruino':
     'prefix': 'espruino'
     'body': """
