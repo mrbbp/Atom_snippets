@@ -21,4 +21,5 @@ i wrote:
 - debounce - from Monaye, refactor David Walsh function in es6 (https://dev.to/monaye/refactor-davidwalsh-s-debounce-function-5afc)
 - debounceSimple - from Monaye, simplier David Walsh function with no immediate parameter
 - requestAnimation structure (2 versions) - one with "framerate", second one without timer
+- remap function as in p5js (es5 style and es6 with arrow function)
 - espruino source code structure (for espruino.com's microcontroler, not web)
