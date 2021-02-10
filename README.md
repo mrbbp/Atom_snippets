@@ -12,7 +12,8 @@ i wrote:
 - xhtml5 base file for epub
 - \<video\> structure with 3 sources
 - \<figure\> structure
-- \<picture\> structure with srcset (fallback for webp file)
+- \<picture\> structure with srcset
+- img with fallback for webp file
 
 ## js
 - fetch JSON file
