@@ -266,8 +266,8 @@
         return outMin + (outMax - outMin) * (value - inMin) / (inMax - inMin);
       }
     """
-  'fonction de remap ES6 (p5js)':
-    'prefix': 'remap ES6'
+  'ES6 fonction de remap (p5js)':
+    'prefix': 'remapES6'
     'body': """
       const remap = (value, inMin, inMax, outMin, outMax) => outMin + (outMax - outMin) * (value - inMin) / (inMax - inMin);
     """
