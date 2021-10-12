@@ -27,52 +27,53 @@
           <source srcset="$1.webp" type="image/webp">
           <source srcset="$2.jpg" type="image/jpeg">
           <source srcset="$2.png" type="image/png">
-          <img src="$2.jpg" title="$3">
+          <img src="$2.jpg" loading="lazy" title="$3">
         </picture>
       """
     'fallback webp':
       'prefix': 'img fallback'
       'body': """
-        <img src="image.webp" onerror="this.onerror=null;this.src='image.png'">
+        <img src="image.webp" loading="lazy" onerror="this.onerror=null;this.src='image.png'">
         """
     'structure HTML5':
       'prefix': 'html5'
       'body': """
         <!DOCTYPE html>
-        <html lang="fr">
-          <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>$1</title>
-            <style media="screen">
-              @font-face {
-                font-family: SourceSansVariable;
-                font-weight: 100 800;
-                src: url(fonts/SourceSansVariable-Roman.woff2) format("woff2");
-              }
-              * { margin:0; padding: 0; }
-              html { font-size: 100%; /* 1rem = 1em = 16px */}
-              body {
-                /*display: flex;*/
-                height: 100vh;
-                /*justify-content: center;
-                align-items: center;*/
-                /* deco */
-                background-color: #f0f0f0;
-                color: #333;
-                font-family: SourceSansVariable;
-                font-weight: 100;
-              }
+          <html lang="fr">
+            <head>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>$1</title>
+              <style media="screen">
+                @font-face {
+                  font-family: SourceSansVariable;
+                  font-weight: 100 800;
+                  src: url(_fonts/SourceSans3VF-Roman.ttf.woff2) format("woff2");
+                }
+                * { margin:0; padding: 0; }
+                html { font-size: 100%; /* 1rem = 1em = 16px */}
+                body {
+                  height: 100vh;
+                  line-height: 120%;
+                  /*display: flex;
+                  justify-content: center;
+                  align-items: center;*/
+                  /* deco */
+                  background-color: #f0f0f0;
+                  color: #333;
+                  font-family: SourceSansVariable;
+                  font-weight: 100;
+                }
+
+              </style>
+            </head>
+            <body>
               $2
-            </style>
-          </head>
-          <body>
-            $3
-          </body>
-          <script>
-            $4
-          </script>
-        </html>
+            </body>
+            <script>
+              $3
+            </script>
+          </html>
         """
     'structure HTML5 cours':
       'prefix': 'html5c'
@@ -86,11 +87,11 @@
             <style media="screen">
               @font-face {
                 font-family: SourceSansVariable;
-                src: url(fonts/SourceSansVariable-Roman.woff2) format("woff2");
+                src: url(_fonts/SourceSans3VF-Roman.ttf.woff2) format("woff2");
               }
               * { margin:0; padding: 0; }
               html { font-size: 100%; /* 1rem = 1em = 16px */}
-              body { height: 100vh;}
+              body { height: 100vh;line-height: 120%}
               $2
             </style>
           </head>
@@ -109,7 +110,7 @@
       'prefix': 'figure custom'
       'body': """
         <figure>
-          <img src="$1" alt="$2"/>
+          <img src="$1" loading="lazy" alt="$2"/>
           <figcaption>$3</figcaption>
         </figure>
         """
@@ -234,13 +235,11 @@
       // inits animation
       let oldDuree = null;
       const fps = 25;
-
       function anim(timestamp) {
         const msPassees = timestamp - oldDuree;
         requestAnimationFrame(anim);
         if (msPassees > 1000/fps) {
           // fait des trucs
-
           // fin des trucs
           oldDuree = timestamp;
         }
@@ -251,11 +250,9 @@
     'prefix': 'requestAnimationFrameBrut'
     'body': """
       window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-
       function anim(timestamp) {
         requestAnimationFrame(anim);
         // fait des trucs à 60fps -> 16ms
-
       }
       requestAnimationFrame(anim);
     """
@@ -271,22 +268,26 @@
     'body': """
       const remap = (value, inMin, inMax, outMin, outMax) => outMin + (outMax - outMin) * (value - inMin) / (inMax - inMin);
     """
+  'ES6 fonction autoinvoquée':
+    'prefix': 'fonction autoinvok'
+    'body': """
+      (() => {
+        // code...
+      })();
+    """
   'base espruino':
     'prefix': 'espruino'
     'body': """
       /*
         espruino - coded by mrbbp.com
-
         IDE espruino (le minifier) n'aime pas les fonctions fléchées dans des fonctions à callback
         il a un pb avec les fins de blocs (les ;)
       */
-
       const onInit  = () => {
         //allume la led 20ms
         digitalPulse(LED1, 1, 20);
         //let lecture = analogRead(port, valeur);
       };
-
       require('Storage').eraseAll();
       USB.setConsole();
     """
